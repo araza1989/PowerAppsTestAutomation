@@ -77,7 +77,7 @@ jobs:
       UsePrivateMode: $(PrivateMode)
       LoginMethod: ${{ parameters.LoginMethod }}
       
-- job: "PowerAppsTestFrameworkAutomation"
+- job: "PowerAppsTestFrameworkAutomationPublishArtifacts"
   pool:
     vmImage: ${{ parameters.image }}
     demands:
