@@ -76,3 +76,18 @@ jobs:
       TestAutomationURLFilePath: $(Build.SourcesDirectory)\$(LocalProjectName)\Samples\$(TestUrlFileName)
       UsePrivateMode: $(PrivateMode)
       LoginMethod: ${{ parameters.LoginMethod }}
+      
+jobs:
+- job: "PowerAppsTestFrameworkAutomation"
+  pool:
+    vmImage: ${{ parameters.image }}
+    demands:
+    - msbuild
+    - visualstudio
+    - vstest
+  steps:
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: '$(Pipeline.Workspace)'
+        artifactType: 'pipeline'
+        artifactName: 'drop'
